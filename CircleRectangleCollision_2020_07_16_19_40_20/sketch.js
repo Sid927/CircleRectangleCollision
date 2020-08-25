@@ -1,10 +1,9 @@
-let rx1 = 300;
-let ry1 = 400;
+let length = prompt('What do you want the be the length of the rectangle')
 let rx2 = 0;
 let ry2 = 0;
-let cr = 100
-let cx = 400;
-let cy = 400;
+let cr = prompt('What do you want to be the radius of the circle');
+let cx = window.innerWidth / 2;
+let cy = window.innerHeight / 2;
 let hit = false;
 let hit2 = false;
 
@@ -43,7 +42,7 @@ const checkCollisionCircleRectangle = (numpoints, cx, cy, cr, rx1, ry1, rx2, ry2
 }
 
 function setup() {
-  createCanvas(750, 750);
+  createCanvas(window.innerWidth, window.innerHeight);
 }
 
 function draw() {
@@ -51,9 +50,9 @@ function draw() {
   hit2 = false;
   background(255);
   circle(cx, cy, cr * 2);
-  rect(mouseX, mouseY, 50, 50);
-  rx2 = mouseX + 50;
-  ry2 = mouseY + 50;
+  rect(mouseX, mouseY, length, length / 2);
+  rx2 = mouseX + length;
+  ry2 = mouseY + length / 2;
   hit = checkCollisionCircleRectangle(180, cx, cy, cr, mouseX, mouseY, rx2, ry2);
   hit2 = checkCollisionPointCircle(mouseX, mouseY, cx, cy, cr);
   stroke( (hit) || (hit2) ? color("red"): 0);
